@@ -8,6 +8,22 @@ package daw;
  *
  * @author clara
  */
+/*palos: oros, bastos, copas, espadas*/
 public enum Palo {
+    OROS("Oros"),
+    BASTOS("Bastos"),
+    COPAS("Copas"),
+    ESPADAS("Espadas");
+    
+    //atributo
+    private final String descripcion;
+    //constructor
+    private Palo(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    //getter
+    public String getDescripcion() {
+        return descripcion;
+    }
     
 }
