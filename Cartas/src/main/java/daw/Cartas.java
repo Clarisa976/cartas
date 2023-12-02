@@ -21,7 +21,9 @@ public class Cartas {
         System.out.println("\t ***********************************");
         //creamos una baraja y la mostramos
         Baraja b1 = new Baraja();
-        System.out.println(b1);
+        for(Naipe n : b1.getBarajaNaipes()){
+            System.out.println(n);
+        }
         System.out.println("\t ***********************************");
         //pedimos una carta al usuario
         System.out.println("Introduce el número de la carta (1-10)");
@@ -43,9 +45,8 @@ public class Cartas {
 
         //sacamos y mostramos cartas hasta que coincida con la del usuario
         boolean esIgual = false;
-        while (!esIgual) {
-            Naipe aux = b1.getBarajaNaipes().remove(0);
-            System.out.println(aux);
+       for( Naipe aux : b1.getBarajaNaipes()){
+           System.out.println(aux);
             if (aux.getNumeroCartas() == numeroPedido && aux.getPalo() == paloTmp) {
                 esIgual = true;
                 System.out.println("Carta encontrada!");

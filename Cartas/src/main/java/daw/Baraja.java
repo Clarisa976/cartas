@@ -5,6 +5,7 @@
 package daw;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
@@ -17,11 +18,14 @@ import java.util.Set;
 public class Baraja {
     public Random rnd = new Random();
     //atributo
-    private ArrayList<Naipe> barajaNaipes;
+    public final int TAMANIO_BARAJA =40;
+    private Naipe[] barajaNaipes;
+//    private ArrayList<Naipe> barajaNaipes;
     
     //constructor por defecto que rellena el array con todos los naipes
     public Baraja() {
-        this.barajaNaipes = new ArrayList<>();
+        this.barajaNaipes = new Naipe[TAMANIO_BARAJA];
+        int contador = 0;
         //rellenamos usando un for each
         for (Palo palo : Palo.values()) {
             //usamos hashset para asegurarnos de que no hay repetidos
@@ -37,23 +41,24 @@ public class Baraja {
                 numUsado.add(numero);
                 try {
                     //creamos un nuevo naipe y lo agregamos a la lista de naipes
-                    barajaNaipes.add(new Naipe(numero, palo));
+                    barajaNaipes[contador++] = (new Naipe(numero, palo));
                 } catch (IllegalArgumentException iae) {
 
                 }
             }
         }
         //añadimos collections para mezclar las cartas y que no salgan ordenadas
-        Collections.shuffle(barajaNaipes);
+        Collections.shuffle(Arrays.asList(barajaNaipes));
     }
     //getter y setter
-    public ArrayList<Naipe> getBarajaNaipes() {
+    public Naipe[] getBarajaNaipes() {
         return barajaNaipes;
     }
 
-    public void setBarajaNaipes(ArrayList<Naipe> barajaNaipes) {
+    public void setBarajaNaipes(Naipe[] barajaNaipes) {
         this.barajaNaipes = barajaNaipes;
     }
+    
     //toString
     @Override
     public String toString() {
