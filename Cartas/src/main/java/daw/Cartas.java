@@ -25,7 +25,7 @@ public class Cartas {
         System.out.println("\t ***********************************");
         //pedimos una carta al usuario
         System.out.println("Introduce el número de la carta (1-10)");
-        int numeroPedido = pedirInt();
+        int numeroPedido = pedirNumero();
         //controlamos que el palo sea uno de los que hay
         Palo paloTmp = null;
         String paloPedido;
@@ -73,7 +73,33 @@ public class Cartas {
         return numero;
     }
 
-    //Método el cual controla la excepción con int
+    public static int pedirNumero() {
+        int max = 10;
+        int min = 1;
+        /*con la creación de un bucle pedimos un número que esté entre el rango
+        indicado*/
+        int num = -1;
+        do {
+//            System.out.println("Introduzca un número entre " + min + " y " + max);
+            num = pedirInt();
+
+        } while (!comprobarRango(num, min, max));
+        return num;
+    }
+
+    public static boolean comprobarRango(int numero, int min, int max) {
+        int MAX = 10;
+        int MIN = 1;
+        /*método para comprobar que el número está en el rango indicado*/
+        boolean resultado = false;
+        if (numero >= min && numero <= max) {
+            resultado = true;
+        }
+        return resultado;
+
+    }
+
+    //Método el cual controla la excepción
     private static String pedirString() {
         Scanner teclado = new Scanner(System.in);
         boolean seguir = true;
