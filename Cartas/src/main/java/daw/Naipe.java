@@ -22,7 +22,10 @@ public class Naipe {
         this.palo = Palo.values()[rnd.nextInt(Palo.values().length)];
     }
     /*constructor con parámetros que lanza excepción en caso de error*/
-    public Naipe(int numeroCartas, Palo palo) {
+    public Naipe(int numeroCartas, Palo palo){
+        if(numeroCartas<1||numeroCartas > 10){
+            throw new IllegalArgumentException("Número de carta no válido");
+        }
         this.numeroCartas = numeroCartas;
         this.palo = palo;
     }
