@@ -7,6 +7,7 @@ package daw;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Set;
  * @author clara
  */
 public class Baraja {
-
+    public Random rnd = new Random();
     //atributo
     private ArrayList<Naipe> barajaNaipes;
     
@@ -30,7 +31,7 @@ public class Baraja {
                 //se genera el número de forma aleatoria
                 int numero;
                 do {
-                    numero = (int) (Math.random() * 10) + 1;
+                    numero = rnd.nextInt(1, 11);
                 } while (numUsado.contains(numero));
                 //se añade a la lista
                 numUsado.add(numero);
