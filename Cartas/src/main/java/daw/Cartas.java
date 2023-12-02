@@ -11,6 +11,8 @@ package daw;
 public class Cartas {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        //creamos una carta aleatoria y la mostramos
+        Naipe n1 = new Naipe();
+        System.out.println("Carta creada de forma aleatoria: " + n1);
     }
 }
