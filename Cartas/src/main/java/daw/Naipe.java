@@ -4,19 +4,22 @@
  */
 package daw;
 
+import java.util.Random;
+
 /**
  *
  * @author clara
  */
 public class Naipe {
+    public Random rnd = new Random();
     //atributos
     private int numeroCartas;/*1..7,8(sota),9(caballo),10(rey)*/
     private Palo palo;//espadas, copas, oros, bastos
     
     //constructor aleatorio por defecto
     public Naipe() {
-        this.numeroCartas = numeroCartas;
-        this.palo = palo;
+        this.numeroCartas = rnd.nextInt(1, 11);
+        this.palo = Palo.values()[rnd.nextInt(Palo.values().length)];
     }
     /*constructor con parámetros que lanza excepción en caso de error*/
     public Naipe(int numeroCartas, Palo palo) {
