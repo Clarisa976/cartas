@@ -4,7 +4,6 @@
  */
 package daw;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -48,7 +47,7 @@ public class Baraja {
             }
         }
         //añadimos collections para mezclar las cartas y que no salgan ordenadas
-        Collections.shuffle(Arrays.asList(barajaNaipes));
+//        Collections.shuffle(Arrays.asList(barajaNaipes));
     }
     //getter y setter
     public Naipe[] getBarajaNaipes() {

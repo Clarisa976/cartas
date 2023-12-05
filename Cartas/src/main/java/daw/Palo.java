@@ -10,20 +10,13 @@ package daw;
  */
 /*palos: oros, bastos, copas, espadas*/
 public enum Palo {
-    OROS("Oros"),
-    BASTOS("Bastos"),
-    COPAS("Copas"),
-    ESPADAS("Espadas");
-    
-    //atributo
-    private final String descripcion;
+    OROS(),
+    BASTOS(),
+    COPAS(),
+    ESPADAS();
+
     //constructor
-    private Palo(String descripcion) {
-        this.descripcion = descripcion;
+    private Palo() {
     }
-    //getter
-    public String getDescripcion() {
-        return descripcion;
-    }
-    
+        
 }

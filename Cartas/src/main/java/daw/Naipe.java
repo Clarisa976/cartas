@@ -14,38 +14,35 @@ public class Naipe {
 
     public Random rnd = new Random();
     //atributos
-    private int numeroCartas;/*1..7,8(sota),9(caballo),10(rey)*/
+    private final String[] NUMERO_CARTA = {"1","2","3","4","5","6","7","8","9","10"};/*1..7,8(sota),9(caballo),10(rey)*/
     private Palo palo;//espadas, copas, oros, bastos
 
     //constructor aleatorio por defecto
-    public Naipe() {
-        this.numeroCartas = rnd.nextInt(1, 11);
-        this.palo = Palo.values()[rnd.nextInt(Palo.values().length)];
-    }
+//    public Naipe() {
+//        this.numeroCartas = {1,2,3,4,5,6,7,8,9,10};
+//        this.palo = Palo.values()[rnd.nextInt(Palo.values().length)];
+//    }
 
     /*constructor con parámetros que lanza excepción en caso de error*/
-    public Naipe(int numeroCartas, Palo palo) {
-        if (numeroCartas < 1 || numeroCartas > 10) {
+    public Naipe(int NUMERO_CARTA, Palo palo) {
+        if (NUMERO_CARTA < 1 || NUMERO_CARTA > 10) {
             throw new IllegalArgumentException("Número de carta no válido");
         }
-        this.numeroCartas = numeroCartas;
+//        this.numeroCartas = numeroCartas;
         this.palo = palo;
     }
 
     //getters
-    public int getNumeroCartas() {
-        return numeroCartas;
+    public String[] getNUMERO_CARTA() {
+        return NUMERO_CARTA;
     }
+
 
     public Palo getPalo() {
         return palo;
     }
 
     //setters
-    public void setNumeroCartas(int numeroCartas) {
-        this.numeroCartas = numeroCartas;
-    }
-
     public void setPalo(Palo palo) {
         this.palo = palo;
     }
@@ -55,24 +52,16 @@ public class Naipe {
     public String toString() {
         /*modificamos el toString para que aparezca sota en lugar de 8,
         caballo en lugar de 9 y rey en lugar del 10*/
-        String nombreNumero;
-        switch (numeroCartas) {
-            case 8:
-                nombreNumero = "Sota";
-                break;
-            case 9:
-                nombreNumero = "Caballo";
-                break;
-            case 10:
-                nombreNumero = "Rey";
-                break;
-            default:
-                nombreNumero = String.valueOf(numeroCartas);
-                break;
-        }
+//        String nombreNumero;
+//        nombreNumero = switch (NUMERO_CARTA) {
+//            case "8" -> "Sota";
+//            case 9 -> "Caballo";
+//            case 10 -> "Rey";
+//            default -> String.valueOf(NUMERO_CARTA);
+//        };
         StringBuilder sb = new StringBuilder();
         sb.append("Naipe{");
-        sb.append(numeroCartas);
+        sb.append(NUMERO_CARTA);
         sb.append(" ").append(palo);
         sb.append('}');
         return sb.toString();
